@@ -1,19 +1,9 @@
 'use strict';
 
-// require('dotenv').config();
-// const supergoose = require('@code-fellows/supergoose');
-// const { app } = require('../src/server');
-// const request = supergoose(app);
 require('dotenv').config();
-const { app } = require('../src/server.js'); // => {server,start}
-const superTest = require('supertest'); // const supergoose = require('@code-fellows/supergoose)
-
-const mongoose = require('mongoose');
-mongoose.connect(process.env.MONGODB_URI, {
-  useNewUrlParser: true,
-  useUnifiedTopology: true,
-});
-const request = superTest(app);
+const supergoose = require('@code-fellows/supergoose');
+const { app } = require('../src/server');
+const request = supergoose(app);
 
 describe('Server Test', () => {
   it('handle working routes', async () => {
